@@ -4,6 +4,22 @@
   
     
     <entry>
+      <title><![CDATA[Mac端iTerms2实现“复制SSH渠道”]]></title>
+      <url>http://www.cevinjohnny.top/2017/02/14/Mac%E7%AB%AFiTerms2%E5%AE%9E%E7%8E%B0%E2%80%9C%E5%A4%8D%E5%88%B6SSH%E6%B8%A0%E9%81%93%E2%80%9D/</url>
+      <content type="html"><![CDATA[<p>本人在公司工作的时候使用的是Windows系统，在Windows系统下使用的软件是Xshell来登录跳板机。Xshell这个终端模拟软件的使用十分方便，建立了链接后，输入PIN+TOKEN即可成功链接，登录了跳板机之后，只需要右键当前窗口选择“复制SSH渠道”，即可实现复制当前登录的跳板机窗口。</p>
+<p>Xsehll的方便之处在于只连接一次跳板机，之后就可以右键“复制SSH渠道”即可新打开一个链接好跳板机的窗口，不需要重复输入PIN+TOKEN，而Mac的终端并没有这样的功能。</p>
+<p>下面来说一下如何在Mac终端里实现“复制SSH渠道”的功能：<br>首先说明一下，在Mac上我用的是iTerms2代替了终端，因为：<br>·iTerm2 比 Mac 默认的 Terminal 终端好用，配合 Zsh 效果更棒哦!<br>·iTerm2下载连接：<a href="http://www.iterm2.com/" target="_blank" rel="external">http://www.iterm2.com/</a><br>·选择iTerms2配色方案：<a href="https://github.com/altercation/solarized" target="_blank" rel="external">https://github.com/altercation/solarized</a><br>本人使用的是Argonaut，效果大概是下面这样子的：<br><img src="http://blog-pic.qiniudn.com/17-2-14/89060624-file_1487051673527_10c3d.png" alt="Argonaut主题"></p>
+<p>言归正传，在iTerms2中使用以下命令可以正常登录跳板机：<br>ssh username@host -p 36000<br>但是存在的弊病就是每次新开一个窗口就得重新输入PIN+TOKEN来登录跳板机。</p>
+<p>如何实现类似Xshell的“复制SSH渠道”功能呢？<br>1、首先，保证这个目录的存在<br>    mkdir -p ~/.ssh/cm_socket<br>2、创建配置文件<br>    vi  /.ssh/cm_socket/config<br>3、编辑config配置文件为以下内容：<br>    Host *<br>    ControlMaster auto<br>    ControlPath ~/.ssh/cm_socket/%r@%h:%p</p>
+<p>4、重启终端</p>
+<p>·注意点：如果没有奏效可能还需要对iTerms2做以下设置：Preference——Profiles——WorkingDirectory；选择reuse previous sessions’s directory</p>
+<p>至此，第一次登录跳板机输入密码后，之后新开窗口登录跳板机就都不再需要密码了。这里还有技巧就是可以用快捷键cmd+t来新建会话窗口，然后设置一个快捷键来send一条命令来登录机器：例如设置fn+F1为一个快捷键，来实现向屏幕输出登录命令：ssh username@host -p 36000<br><img src="http://blog-pic.qiniudn.com/17-2-14/20063619-file_1487051336985_1386c.png" alt="快捷键设置"></p>
+<p>5、然后使用快捷键 cmd+t 打开新的窗口，然后 fn+F1 将快捷命令输出的屏幕上，回车！你就会看到已经登录的跳板机！是不是比右键“复制会话”还要快呢！嘻嘻！</p>
+<p>原理很简单，开一个ssh连接在后台放着，以后再有需要用到ssh到同样主机的时候，直接使用这个连接的socket文件，不用再创建连接了，同理，也不需要再进行用户身份验证。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac日式键盘的问题]]></title>
       <url>http://www.cevinjohnny.top/2017/02/10/Mac%E6%97%A5%E5%BC%8F%E9%94%AE%E7%9B%98%E7%9A%84%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p><img src="http://blog-pic.qiniudn.com/17-2-10/20803520-file_1486715028193_b5fe.jpg" alt=""><br>在日本购买或者选择代购MacBook的朋友，大多都是着眼于日币的低汇率，所以在日本购买苹果的产品是比较实惠的。本人也是入手了一款日本带回的MacBook pro，不过键盘是日式的，上面的萌萌的日文，还有不同寻常的标点符号位置着实让我蛋疼了一下。不过经过上网各路搜索查询解决方案和本人的实践，终于找了在Mac下涉及到win系统时，键盘标点符号位置不对这种情况的解决方案。 </p>
