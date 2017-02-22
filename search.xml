@@ -4,6 +4,16 @@
   
     
     <entry>
+      <title><![CDATA[识别当前运行的是哪种shell]]></title>
+      <url>http://www.cevinjohnny.top/2017/02/22/%E8%AF%86%E5%88%AB%E5%BD%93%E5%89%8D%E8%BF%90%E8%A1%8C%E7%9A%84%E6%98%AF%E5%93%AA%E7%A7%8Dshell/</url>
+      <content type="html"><![CDATA[<p>shell有多种版本，最常见的一般是bash，有可能你用的是tcsh，也可能是Zshell（zsh），我本人用的就是zsh，原因呢，蛮简单的：好用（装B）。那么如何查看自己用的是哪一种shell呢？很简单，在终端的shell提示符后输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="variable">$0</span></div></pre></td></tr></table></figure></p>
+<p>并按下RTURN键，shell就会显示你正在使用的shell名称。<br>这条命令的原理是shell将$0展示为正在运行程序的程序名。这条命令可能会显示如下输出：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$echo $0</div><div class="line">-bash</div></pre></td></tr></table></figure></p>
+<p>也可能显示为：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$echo</span> <span class="variable">$0</span></div><div class="line"><span class="regexp">/bin/</span>bash</div></pre></td></tr></table></figure></p>
+<p>反正我显示的是这样：<br><img src="http://blog-pic.qiniudn.com/17-2-22/83479518-file_1487768627917_10e77.jpg" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac端iTerms2实现“复制SSH渠道”]]></title>
       <url>http://www.cevinjohnny.top/2017/02/14/Mac%E7%AB%AFiTerms2%E5%AE%9E%E7%8E%B0%E2%80%9C%E5%A4%8D%E5%88%B6SSH%E6%B8%A0%E9%81%93%E2%80%9D/</url>
       <content type="html"><![CDATA[<p><img src="http://blog-pic.qiniudn.com/17-2-14/58029075-file_1487052499319_ae90.jpg" alt=""><br>本人在公司工作的时候使用的是Windows系统，在Windows系统下使用的软件是Xshell来登录跳板机。Xshell这个终端模拟软件的使用十分方便，建立了链接后，输入PIN+TOKEN即可成功链接，登录了跳板机之后，只需要右键当前窗口选择“复制SSH渠道”，即可实现复制当前登录的跳板机窗口。</p>
