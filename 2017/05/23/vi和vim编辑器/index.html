@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>vi和vim编辑器 | Johnny`s Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">vi和vim编辑器</h1><a id="logo" href="/.">Johnny`s Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">vi和vim编辑器</h1><div class="post-meta">May 23, 2017<span> | </span><span class="category"><a href="/categories/Technology/">Technology</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a href="/2017/05/23/vi和vim编辑器/#comments" class="ds-thread-count cloud-tie-join-count"><span style="font-size: 15px; color: #6E7173;" class="join-count">0</span><span> 条参与</span></a><div class="post-content"><p><img src="http://blog-pic.qiniudn.com/6597285270937452409.jpg" alt=""></p>
+<h3 id="vi和vim编辑器"><a href="#vi和vim编辑器" class="headerlink" title="vi和vim编辑器"></a>vi和vim编辑器</h3><p>vim编辑器是vi的加强版，在简单的文本操作上与vi几乎完全一致，所以习惯使用vi的人可以完全无缝地切换使用vim编辑器。</p>
+<hr>
+<h4 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h4><p>vi编辑器有3种模式，分别是一般模式、编辑模式、末行指令模式。一般模式可以与编辑模式、末行指令模式相互转换，但是编辑模式和末行指令模式之间不能直接转换，必须通过一般模式进行转换。</p>
+<ol>
+<li>一般模式<br> 使用vi打开某个文件的时候默认进入的模式就是一般模式。在这种模式中最基础的功能就是“移动光标”——使用上下左右键来移动光标块。还可使用按键组合的方式来执行复制、粘贴、删除的功能。</li>
+<li>编辑模式<br> 在一般模式中，按i键可以进入编辑模式（这是最简单的进入方式，底部会出现“–INSERT–”字样，还有其他的进入方式后面介绍）。在编辑模式中，依然可以使用上下左右键来移动光标，同时还可以输入文字到文件中。从编辑模式回到一般模式需要按Esc键。</li>
+<li>末行指令模式<br> 在一般模式中，按冒号键（：）或斜杠键（/）或问号键（?）就会在当前视图的最后一行出现相应的符号，这就代表进入了相应的末行指令模式。</li>
+</ol>
+<hr>
+<p>vi编辑器——<br>在一般模式下的快捷键：</p>
+<blockquote>
+<p>yy——复制光标所在行<br>nyy——复制光标在内的n行<br>p——粘贴复制内容在光标的下面一行<br>dd——删除光标所在行<br>ndd——删除包含光标在内的n行<br>dw——删除光标后的一个单词<br>x——向后删除一个字符<br>X——向前删除一个字符<br>o——在当前光标下一行插入新行并开始编辑<br>O——在当前光标上一行插入新行并开始编辑<br>u——撤销最近的一次操作<br>Ctrl+r——重做操作<br>$——光标移至所在行的末尾<br>G——光标移至整个文本的最后一行行首<br>Ctrl+f——下一页<br>Ctrl+b——上一页<br>/——搜索关键字。搜索功能默认使用光标位置下移来实现搜索操作。搜索到第一个HostKey后，可以按n键继续往下找，每按一次光标将跳至下一个关键字处，如果要想往上寻找，则按大写字母N。<br>?——查找关键字还可以使用“?”符号，和“/”不同的是，使用“？”查找默认是从光标位置向上寻找关键字，按n键代表继续往上寻找，按N键代表向下寻找</p>
+</blockquote>
+<hr>
+<p>vi字符替换：</p>
+<blockquote>
+<p>:1,$s/word1/word2/g——将第1行到最后一行的所有word1换成word2<br>:n1,n2s/word1/word2/g——将n1行到n2行之间所有的word1都替换成word2<br>:s/word1/word2/g——将本行的word1都换成word2<br>:s/word1/word2——将本行首次出现的word1换成word2</p>
+</blockquote>
+<h4 id="vim编辑器"><a href="#vim编辑器" class="headerlink" title="vim编辑器"></a>vim编辑器</h4><p>vim是既然vi的增强版，那么vim就一定有vi所没有的功能，其中之一就是vim支持多行编辑，而vi每次只能处理一行。<br>使用Ctrl+v组合键，这时最下行会出现“–VISUAL BLOCK–”字样，这说明当前进入了Visual Block模式（如果只按大写的字母V则代表进入多行选中模式，此时最下行会出现“–VISUAL LINE–”字样）。使用上下左右键可以选中多行文字.选中后可以一次性复制（y键）、删除（d键）选中的文字或者将其粘贴到其他地方（p键）。</p>
+<blockquote>
+<p>ctrl+v——多字符选择<br>V——多行选择<br>y——复制<br>p——粘贴（如果之前有删除，p命令会将删除的内容粘贴在光标后面）<br>d——删除<br>r——替换（输入r后，再输入要替换的字符即可替换光标所在位置的字符）<br>R——可连续替换多个字符，只要输出字符，光标后的字符就会被新字符替换，知道按下esc<br>ce——改变文本直到一个单词的末尾（c更改操作类同d删除动作）<br>:n——多文件编辑时，跳转到下一个文件<br>:N——多文件编辑时，跳转到上一个文件<br>:files——查看一共打开了哪几个文件<br>A——光标移到行位并进入编辑模式<br>q!——退出vim编辑器，将不保存对文本进行的修改<br>wq——退出vim编辑器，将保存所有对文本进行的修改<br>dw——可以从光标处删除至一个单词的末尾<br>d$——当前光标删除到行末<br>dd——删除整行，如果在dd前加上数字，ndd，表示删除光标所在行在内的n行<br>u——撤销最后执行的命令<br>U——撤销光标所在行的所有操作<br>Ctrl+r——重做被撤销的动作</p>
+</blockquote>
+<hr>
+<p>题外话——关于命令和对象<br>许多改变文本的命令都由一个操作符和一个动作构成。<br>使用删除操作符 d 的删除命令的格式如下：</p>
+<blockquote>
+<pre><code>d   motion
+其中：
+d      - 删除操作符。
+motion - 操作符的操作对象(在下面列出)。
+</code></pre></blockquote>
+<p>一个简短的动作列表：</p>
+<blockquote>
+<pre><code>w - 从当前光标当前位置直到下一个单词起始处，不包括它的第一个字符。
+e - 从当前光标当前位置直到单词末尾，包括最后一个字符。
+$ - 从当前光标当前位置直到当前行末。
+</code></pre></blockquote>
+<p>所以，在正常模式下面如果你仅按代表相应动作的键而不使用操作符，你会发现光标的移动正如上面的对象列表所代表的一样。例如仅按e，光标会移到该单词的末尾。<br>在动作前输入数字会使它重复那么多次。例如输入2w使光标向后移动两个单词，输入 0 (数字零) 移动光标到行首。<br>使用操作符时输入数字同样可以使它重复那么多次，例如输入d2w以删除两个单词。<br>同理c（更改操作）与d（删除操作）是类似的，c$可以更改光标至行尾的内容</p>
+<hr>
+<p>定位及文件状态相关：</p>
+<blockquote>
+<p>ctrl+g——页面最底部出现一个状态信息行，显示的内容是当前编辑的文件名和文件中光标位置（所在行/总行号）<br>G——跳转到文本的最后一行<br>gg——跳转到文本第一行<br>nG——输入行号，然后输入大写G。这样就可以跳转到该行。<br>/——搜索关键字。搜索功能默认使用光标位置下移来实现搜索操作。搜索到第一个HostKey后，可以按n键继续往下找，每按一次光标将跳至下一个关键字处，如果要想往上寻找，则按大写字母N。<br>?——查找关键字还可以使用“?”符号，和“/”不同的是，使用“？”查找默认是从光标位置向上寻找关键字，按n键代表继续往上寻找，按N键代表向下寻找<br>Ctrl+o——回到上一个光标所在位置<br>Ctrl+i——如果用Ctrl+o回到了老的位置，可以使用该命令来返回新位置<br>%——可以查找配对的括号)、]、};再按%就可以跳回配对的第一个括号处，这很方便在看代码的时候用~<br>:set ic——当用/或者?查找内容的时候，使用:set ic可以忽略大小写进行搜索<br>:set noic——当用/或者?查找内容的时候，使用:set noic会严格区别大小写进行搜索<br>\c——如果您想要仅在一次查找时忽略字母大小写，您可以使用 /searchname\c,即在搜索词后添加\c<br>:set is——查找短语时显示部分匹配（is=inc search）<br>:set hls——设置搜索的时候带有高亮效果，这样匹配的单词会全部高粱现实出来，比较方便<br>:set nohls——设置搜索不带高亮效果~（nohls——no high light search）<br>:s/old/new/g——替换全行的old为new<br>:s/old/new——只替换光标所在行的第一个匹配串<br>n1,n2s/old/new/g——n1和n2代表的是替换操作的若干行中首尾两行的行号<br>:%s/old/new/g——替换整个文件中的每个匹配串<br>:%s/old/new/gc——会找到整个文件中的每个匹配串，并且对每个匹配串提示是否进行替换。</p>
+</blockquote>
+<hr>
+<p>在VIM内执行外部命令的方法：<br>输入 :! 然后紧接着输入一个外部命令可以执行该外部命令。以 ls 命令为例。输入 !ls &lt;回车&gt; 。该命令就会列举出您当前目录的内容，就如同您在命令行提示符下输入 ls 命令的结果一样。</p>
+<hr>
+<p>对正在用vim编辑的文件，想要“另存为”的时候，可以用命令</p>
+<blockquote>
+<p>:w test<br>这样就会将正在用vim编辑的文件另存在当前目录下，名称为test<br>也可以选择文本中的某些内容，然后另存到一个新文件中。首先用命令<br>v——选择文本的某些区域，<br>然后按:字符。您将看到屏幕底部会出现 :’&lt;,’&gt;<br>接着输入 w test<br>那么就会将选中的内存存到文件test中<br>如果想要将另一个文本中的内容粘贴到正在用vim编辑的文本中，可以用命令<br>:r FILENAME<br>这样就可提取文件FILENAME的全部内容，并将其插入到当前文件的光标位置后面。<br>同理如果用<br>:r !ls<br>那么就会将外部命令ls的标准输出内容放置到当前文件的光标位置后面。</p>
+</blockquote>
+<hr>
+<p>o、O、a、i 和 A 都会带您进入插入模式，惟一的区别在于字符插入的位置。</p>
+<blockquote>
+<p>o——光标所在下一行插入<br>O——光标所在上一行插入<br>a——光标所在单词结尾插入<br>A——光标所在行的末尾插入<br>i——光标后的一个位置插入</p>
+</blockquote>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://www.cevinjohnny.top/2017/05/23/vi和vim编辑器/" data-id="cj31elgun0001ohwvdvdyxtjp" class="article-share-link">分享</a><div class="tags"><a href="/tags/Linux/">Linux</a></div><div class="post-nav"><a href="/2017/05/09/Mac日式键盘的问题/" class="next">Mac日式键盘的问题</a></div><div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div><script>var cloudTieConfig = {
+  url: document.location.href,
+  sourceId: "",
+  productKey: "e89e2d793f70488dba327f80f59b3bb1",
+  target: "cloud-tie-wrapper"
+};</script><script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://www.cevinjohnny.top"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Technology/">Technology</a><span class="category-list-count">5</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/MacBook/" style="font-size: 15px;">MacBook</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/23/vi和vim编辑器/">vi和vim编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Mac日式键盘的问题/">Mac日式键盘的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/Linux-netstat命令/">Linux netstat命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/Mac端iTerms2实现“复制SSH渠道”/">Mac端iTerms2实现“复制SSH渠道”</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/识别当前运行的是哪种shell/">识别当前运行的是哪种shell</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">Johnny`s Blog.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
